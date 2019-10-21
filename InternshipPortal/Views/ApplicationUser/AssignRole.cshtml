@@ -1,0 +1,54 @@
+﻿@model InternshipPortal.Models.UserRoleViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@{
+    ViewBag.Title = "AssignRole";
+}
+
+<h2>AssignRole</h2>
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Assign Roles
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i>  <a href="/home">Users</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-file"></i> Assign Users
+                    </li>
+                </ol>
+                <section class="content">
+                    <p>
+                        User: @Model.UserName
+                    </p>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.HiddenFor(p => p.Id)
+                        @Html.ListBoxFor(p => p.SelectedRoles, Model.Roles)
+                        <p><input type="submit" value="Submit!" /></p>
+
+                    }
+                    
+                </section>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
